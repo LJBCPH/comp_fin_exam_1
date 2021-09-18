@@ -36,3 +36,9 @@ double MTRNG::genNormal()
 {
 	return invNormalCdf(genUniform());
 }
+
+double MTRNG::genNormal(std::uint_fast32_t randMT)
+{
+	double unif = randMT / (double)RandNumMT.max();
+	return invNormalCdf(unif);
+}

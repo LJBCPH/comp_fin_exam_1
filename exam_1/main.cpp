@@ -53,6 +53,19 @@ int main() {
     RandNumber.setSeed(1);
     std::cout << RandNumber.genNormal() << std::endl;
 
+    // Problem 7.
+    std::cout << "---  Q1.P7  --- \n";
+    // Output related to problem 7.
+    RandNumber.setSeed(1);
+    std::cout << RandNumber.genNormal() << std::endl;
+
+    // Problem 8.
+    std::cout << "---  Q1.P8  --- \n";
+    // Output related to problem 8.
+    MTRNG RandNumber2(10);
+    std::uint_fast32_t RandMTSeed10 = RandNumber2.getMTRNG();
+    std::cout << RandNumber2.genNormal(RandMTSeed10) << std::endl;
+
 
     // Question 2.
 
