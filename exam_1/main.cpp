@@ -12,7 +12,7 @@ int main() {
 
     // Question 1.
 
-        // Problem 1
+    // Problem 1
     std::cout << "---  Q1.P1  --- \n" << std::endl;
 
     // Here is some code that initializes a MT object with seed 1 
@@ -25,8 +25,8 @@ int main() {
     std::cout << "Max value: " << random_number_mt_.max() << std::endl;
 
     // Problem 2.
-    MTRNG RandNumber(1); // Here I initialize my class, there is no output so cout is not needed.
-    // There are though  questions  answered in a seperate pdf file.
+    MTRNG RandNumber(1); // Initialisation of MTRNG class
+
 
     // Problem 3.
     std::cout << "---  Q1.P3  --- \n";
@@ -53,20 +53,34 @@ int main() {
     RandNumber.setSeed(1);
     std::cout << RandNumber.genNormal() << std::endl;
 
-    // Problem 7.
-    std::cout << "---  Q1.P7  --- \n";
-    // Output related to problem 7.
-    RandNumber.setSeed(1);
-    std::cout << RandNumber.genNormal() << std::endl;
 
     // Problem 8.
     std::cout << "---  Q1.P8  --- \n";
     // Output related to problem 8.
-    MTRNG RandNumber2(10);
+    std::mt19937 random_number_mt;
+    random_number_mt.seed(10);
+    MTRNG RandNumber2(random_number_mt);
     std::uint_fast32_t RandMTSeed10 = RandNumber2.getMTRNG();
-    std::cout << RandNumber2.genNormal(RandMTSeed10) << std::endl;
+    std::cout << RandNumber2.genNormal() << std::endl;
 
+    // Problem 9.
+    std::cout << "---  Q1.P9  --- \n";
+    // Output related to problem 9.
+    MTRNG RandNumber3(1, 5);
+    RandNumber.setSeed(1);
+    std::cout << "Dimension for vector: " << RandNumber3.getDim() << std::endl;
+    std::vector<double> randVector(RandNumber3.getDim());
+    RandNumber3.genNormal(randVector);
+    for (int i = 0; i < 5; i++) {
+        std::cout << randVector[i] << std::endl;
+    }
 
+    // Problem 10.
+    std::cout << "---  Q1.P10  --- \n";
+    // Output related to problem 10.
+    RandNumber2.setSeed(1);
+    MTRNG RandNumber4(RandNumber2);
+    std::cout << "Copied: " << RandNumber4.genUniform() << std::endl;
     // Question 2.
 
         // Problem 1.

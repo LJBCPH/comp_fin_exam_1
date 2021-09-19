@@ -1,18 +1,24 @@
 #pragma once
 #include <random>
 
-int random_number_mt(std::uint_fast32_t seed_);
 
 class MTRNG
 {
 public:
 	MTRNG(std::uint_fast32_t seed); // setting seed
+	MTRNG(std::mt19937 MT19937Object); // overloading to take 
+	MTRNG(std::uint_fast32_t seed, size_t dimension); // overloading to take 
 	double genUniform(); //p3
 	double genUniform(double lower_bound, double upper_bound); //p5
 	void setSeed(std::uint_fast32_t seed); //p4
 	std::uint_fast32_t getMTRNG() { return RandNumMT(); }
 	double genNormal();
 	double genNormal(std::uint_fast32_t randMT);
+	size_t getDim() { return dim; }
+	std::vector<double> genNormal(std::vector<double> &vector);
+	MTRNG(const MTRNG&); // 
+
 private:
 	std::mt19937 RandNumMT; //p2
+	size_t dim;
 };
