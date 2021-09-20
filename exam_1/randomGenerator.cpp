@@ -24,14 +24,15 @@ MTRNG::MTRNG(std::mt19937 MT19937Object)
 
 MTRNG::MTRNG(std::uint_fast32_t seed, size_t dimension) : dim(dimension)
 {
+	RandNumMT.seed(seed);
 }
 
-double MTRNG::genUniform()
+double MTRNG::operator()()
 {
 	return RandNumMT() / (double)RandNumMT.max();
 }
 
-double MTRNG::genUniform(double lower_bound, double upper_bound)
+double MTRNG::operator()(double lower_bound, double upper_bound)
 {
 	return RandNumMT() / (double)RandNumMT.max() * (upper_bound - lower_bound) + lower_bound;
 }
@@ -43,7 +44,7 @@ void MTRNG::setSeed(std::uint_fast32_t seed)
 
 double MTRNG::genNormal()
 {
-	return invNormalCdf(genUniform());
+	return invNormalCdf(operator()());
 }
 
 double MTRNG::genNormal(std::uint_fast32_t randMT)
@@ -55,11 +56,13 @@ double MTRNG::genNormal(std::uint_fast32_t randMT)
 std::vector<double> MTRNG::genNormal(std::vector<double>& vector)
 {
 	for (int i = 0; i < dim; i++) {
-		vector[i] = invNormalCdf(genUniform());
+		vector[i] = invNormalCdf(operator()());
 	}
 	return vector;
 }
 
-MTRNG::MTRNG(const MTRNG&)
+MTRNG::MTRNG(const MTRNG& origRandNumMT)
 {
+	RandNumMT = origRandNumMT.RandNumMT;
+	dim = origRandNumMT.dim;
 }
