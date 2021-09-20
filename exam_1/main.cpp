@@ -60,7 +60,6 @@ int main() {
     std::mt19937 random_number_mt;
     random_number_mt.seed(10);
     MTRNG RandNumber2(random_number_mt);
-    std::uint_fast32_t RandMTSeed10 = RandNumber2.getMTRNG();
     std::cout << RandNumber2.genNormal() << std::endl;
 
     // Problem 9.
@@ -81,6 +80,12 @@ int main() {
     RandNumber2.setSeed(1);
     MTRNG RandNumber4(RandNumber2);
     std::cout << "Copied: " << RandNumber4.genNormal() << std::endl;
+
+    // Problem 11.
+    std::cout << "---  Q1.P11  --- \n";
+    // Output related to problem 11.
+
+
     // Question 2.
 
         // Problem 1.

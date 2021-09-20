@@ -32,9 +32,9 @@ double MTRNG::operator()()
 	return RandNumMT() / (double)RandNumMT.max();
 }
 
-double MTRNG::operator()(double lower_bound, double upper_bound)
+double MTRNG::operator()(double lowerBound, double upperBound)
 {
-	return RandNumMT() / (double)RandNumMT.max() * (upper_bound - lower_bound) + lower_bound;
+	return RandNumMT() / (double)RandNumMT.max() * (upperBound - lowerBound) + lowerBound;
 }
 
 void MTRNG::setSeed(std::uint_fast32_t seed)
