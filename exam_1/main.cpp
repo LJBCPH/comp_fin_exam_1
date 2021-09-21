@@ -3,10 +3,24 @@
 // Student id :  ....
 
 #include <iostream>
-#include "gaussian_header.hpp"
-#include "randomGenerator.h"
 #include <random>
 #include <string>
+#include "gaussian_header.hpp"
+#include "randomGenerator.h"
+#include "TemplatedRNG.h"
+
+//double BFunction(double kappa, double b1) {
+//    return kappa * b1 - 1;
+//}
+//
+//double AFunction(double kappa, double theta, double b1, double sigma, double b2) {
+//    return -kappa * theta * b1 - 0.5 * sigma * b2;
+//}
+//
+//double rungeKutta(double r, double kappa, double theta, double sigma, double T) {
+//    double A = AFunction(kappa, theta, ;
+//    double B = 0;
+//}
 
 int main() {
 
@@ -84,7 +98,21 @@ int main() {
     // Problem 11.
     std::cout << "---  Q1.P11  --- \n";
     // Output related to problem 11.
+    //std::mt19937 random_number_mt;
+    TemplatedRNG<std::mt19937> TemplatedRandNumMT(1);
+    std::cout << "Std. Uniform from MT: " << TemplatedRandNumMT.genUniform() << std::endl;
 
+    TemplatedRNG<std::mt19937> TemplatedRandNumOverloadedMT(random_number_mt, 1);
+    std::cout << "Std. Uniform from MT using the overloaded: " << TemplatedRandNumOverloadedMT.genUniform() << std::endl;
+
+    TemplatedRNG<std::minstd_rand> TemplatedRandNumMR(1);
+    std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumMR.genUniform() << std::endl;
+
+    std::minstd_rand random_number_mr;
+    std::cout << "random: " << random_number_mr() << "max: " << random_number_mr.max();
+    TemplatedRNG<std::minstd_rand> TemplatedRandNumOverloadedMR(random_number_mr, 1);
+    std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumOverloadedMR.genUniform() << std::endl;
+    //std::cout << "Std. Uniform from MT using the overloaded: " << random_number_mr.max() << std::endl;
 
     // Question 2.
 

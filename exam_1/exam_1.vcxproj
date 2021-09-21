@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="gaussian_header.hpp" />
     <ClInclude Include="randomGenerator.h" />
+    <ClInclude Include="TemplatedRNG.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
