@@ -141,11 +141,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="randomGenerator.cpp" />
+    <ClCompile Include="RungeKutta.cpp" />
+    <ClCompile Include="Vasicek.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gaussian_header.hpp" />
     <ClInclude Include="randomGenerator.h" />
+    <ClInclude Include="RungeKutta.h" />
     <ClInclude Include="TemplatedRNG.h" />
+    <ClInclude Include="Vasicek.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

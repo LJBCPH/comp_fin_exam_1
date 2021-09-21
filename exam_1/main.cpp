@@ -5,22 +5,13 @@
 #include <iostream>
 #include <random>
 #include <string>
+#include <cmath>
 #include "gaussian_header.hpp"
 #include "randomGenerator.h"
 #include "TemplatedRNG.h"
+#include "RungeKutta.h"
+#include "Vasicek.h"
 
-//double BFunction(double kappa, double b1) {
-//    return kappa * b1 - 1;
-//}
-//
-//double AFunction(double kappa, double theta, double b1, double sigma, double b2) {
-//    return -kappa * theta * b1 - 0.5 * sigma * b2;
-//}
-//
-//double rungeKutta(double r, double kappa, double theta, double sigma, double T) {
-//    double A = AFunction(kappa, theta, ;
-//    double B = 0;
-//}
 
 int main() {
 
@@ -109,18 +100,36 @@ int main() {
     std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumMR.genUniform() << std::endl;
 
     std::minstd_rand random_number_mr;
-    std::cout << "random: " << random_number_mr() << "max: " << random_number_mr.max();
+    //std::cout << "random: " << random_number_mr() << "max: " << random_number_mr.max();
     TemplatedRNG<std::minstd_rand> TemplatedRandNumOverloadedMR(random_number_mr, 1);
     std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumOverloadedMR.genUniform() << std::endl;
     //std::cout << "Std. Uniform from MT using the overloaded: " << random_number_mr.max() << std::endl;
 
     // Question 2.
 
-        // Problem 1.
-    std::cout << "---  Q2.P1  --- \n";
+    // Problem 3.
+    std::cout << "---  Q2.P3  --- \n";
+    double r = 0.02;
+    double kappa = 0.3;
+    double theta = 0.03;
+    double sigma = 0.01;
+    double T = 1;
+    double stepLength = 0.01;
+    double rkSolution = rungeKutta(r, kappa, theta, sigma, T, stepLength);
+    std::cout << "Vasicek Bond Value using Runke Kutta: " << rkSolution << std::endl;
 
-    //...
+    // Problem 4.
+    std::cout << "---  Q2.P4  --- \n";
+    Vasicek GetVasicek(r, kappa, theta, sigma, stepLength);
+    std::cout << "r: " << GetVasicek.getR() << std::endl;
+    std::cout << "Kappa: " << GetVasicek.getKappa() << std::endl;
+    std::cout << "Theta: " << GetVasicek.getTheta() << std::endl;
+    std::cout << "Sigma: " << GetVasicek.getSigma() << std::endl;
+    std::cout << "Step Length: " << GetVasicek.getStepLength() << std::endl;
 
+    // Problem 5.
+    std::cout << "---  Q2.P5  --- \n";
+    std::cout << "Overloaded pricing functions price: " << GetVasicek.rungeKutta() << std::endl;
 
     return 0;
 }
