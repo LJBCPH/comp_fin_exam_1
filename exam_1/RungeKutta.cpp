@@ -37,3 +37,37 @@ double rungeKutta(double r_, double kappa_, double theta_, double sigma_, double
     //std::cout << "z: " << z << "y: " << y << std::endl;
     return (exp(y + z * r_));
 }
+
+double rungeKutta(Vasicek VasicekObject)
+{
+    double step_length = VasicekObject.getStepLength();
+    double r= VasicekObject.getR();
+    double kappa = VasicekObject.getKappa();
+    double theta = VasicekObject.getTheta();
+    double sigma = VasicekObject.getSigma();
+    double T = 1;
+    //double z = BFunction(kappa, B); //Bmærke = z
+    //double y = AFunction(kappa, theta, B, sigma); //Amærke = y
+    double z = 0;
+    double y = 0;
+    double k1, k2, k3, k4, l1, l2, l3, l4;
+    for (int i = 0; i < T / step_length; i++) {
+
+        k1 = -step_length * BFunction(kappa, z);
+        l1 = -step_length * AFunction(kappa, theta, z, sigma);
+
+        k2 = -step_length * BFunction(kappa, z + 0.5 * k1);
+        l2 = -step_length * AFunction(kappa, theta, z + 0.5 * l1, sigma);
+
+        k3 = -step_length * BFunction(kappa, z + 0.5 * k2);
+        l3 = -step_length * AFunction(kappa, theta, z + 0.5 * l2, sigma);
+
+        k4 = -step_length * BFunction(kappa, z + k3);
+        l4 = -step_length * AFunction(kappa, theta, z + l3, sigma);
+
+        z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+        y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
+    }
+    //std::cout << "z: " << z << "y: " << y << std::endl;
+    return (exp(y + z * r));
+}

@@ -10,10 +10,6 @@ public:
 	double getSigma() { return sigma; }
 	double getStepLength() { return step_length; }
 
-	double rungeKutta();
-	double BFunction(double B);
-	double AFunction(double B);
-
 private:
 	double r;
 	double kappa;

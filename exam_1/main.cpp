@@ -129,7 +129,7 @@ int main() {
 
     // Problem 5.
     std::cout << "---  Q2.P5  --- \n";
-    std::cout << "Overloaded pricing functions price: " << GetVasicek.rungeKutta() << std::endl;
+    std::cout << "Overloaded pricing functions price: " << rungeKutta(GetVasicek) << std::endl;
 
     return 0;
 }
