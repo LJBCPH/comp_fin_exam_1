@@ -5,7 +5,7 @@
 inline double normalCdf(double x) // inline means the function can be implemented in a header and still work.
 {
     // static constexpr means it will only be set once at compile time. Don't worry about it.
-    static constexpr double p = 0.2316419;
+    static constexpr double p = 0.2316419; //written as b0 in the linked wiki page
     static constexpr double b1 = 0.319381530;
     static constexpr double b2 = -0.356563782;
     static constexpr double b3 = 1.781477937;
@@ -13,7 +13,19 @@ inline double normalCdf(double x) // inline means the function can be implemente
     static constexpr double b5 = 1.330274429;
 
     //  -- -- -- -- Your implementation -- -- -- --
-    return b1;  // so that it compiles.
+    if (x < 0) // Using symmetry
+    {
+        x = abs(x);
+        double t = 1 / (1 + p * x);
+        double normalPdf = (1 / pow((2 * 3.14159265), 0.5)) * exp(-0.5 * pow(x, 2));
+        return normalPdf * (b1 * t + b2 * pow(t, 2) + b3 * pow(t, 3) + b4 * pow(t, 4) + b5 * pow(t, 5));
+    }
+    else
+    {
+        double t = 1 / (1 + p * x);
+        double normalPdf = (1 / pow((2 * 3.14159265), 0.5)) * exp(-0.5 * pow(x, 2));
+        return 1 - normalPdf * (b1 * t + b2 * pow(t, 2) + b3 * pow(t, 3) + b4 * pow(t, 4) + b5 * pow(t, 5));
+    }
 }
 
 //    Inverse CDF approximation

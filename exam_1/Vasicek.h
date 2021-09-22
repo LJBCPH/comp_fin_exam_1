@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 class Vasicek {
 public:
@@ -9,6 +10,8 @@ public:
 	double getTheta() { return theta; }
 	double getSigma() { return sigma; }
 	double getStepLength() { return step_length; }
+	double getT() { return T; }
+	std::vector<double> solveODE(double T_);
 
 private:
 	double r;
@@ -16,4 +19,5 @@ private:
 	double theta;
 	double sigma;
 	double step_length;
+	double T;
 };

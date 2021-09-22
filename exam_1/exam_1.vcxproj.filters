@@ -27,6 +27,9 @@
     <ClCompile Include="Vasicek.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SABR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="randomGenerator.h">
@@ -42,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vasicek.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ZeroCouponBond.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SABR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

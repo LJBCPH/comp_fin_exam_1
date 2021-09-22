@@ -11,6 +11,7 @@
 #include "TemplatedRNG.h"
 #include "RungeKutta.h"
 #include "Vasicek.h"
+#include "SABR.h"
 
 
 int main() {
@@ -130,6 +131,31 @@ int main() {
     // Problem 5.
     std::cout << "---  Q2.P5  --- \n";
     std::cout << "Overloaded pricing functions price: " << rungeKutta(GetVasicek) << std::endl;
+
+    // Problem 10.
+    std::cout << "---  Q2.P5  --- \n";
+    double rkSolutionCir = rungeKuttaCir(r, kappa, theta, sigma, T, stepLength);
+    std::cout << "Cir Bond Value using Runke Kutta: " << rkSolutionCir << std::endl;
+
+    // Question 3.
+    // Problem 1.
+    std::cout << "---  Q3.P1  --- \n";
+    std::cout.std::ios_base::precision(12);
+    std::cout << "From function normalCdf(0.225): "  << normalCdf(0.225) << std::endl;
+    std::cout << "From function normalCdf(0.775): " << normalCdf(0.775) << std::endl;
+
+    // Problem 1.
+    std::cout << "---  Q3.P2  --- \n";
+    double S0 = 90.0;
+    double K = 100.0;
+    double sigma0 = 1.3;
+    double alpha = 0.5;
+    double beta = 0.5;
+    double rho = -0.5;
+    T = 3.0;
+
+    SABR SABRObj(S0, K, sigma0, alpha, beta, rho, T);
+    std::cout << "SABR BS Call price: " << SABRObj.blackScholesSABR() << std::endl;
 
     return 0;
 }
