@@ -12,6 +12,7 @@
 #include "RungeKutta.h"
 #include "Vasicek.h"
 #include "SABR.h"
+#include "ZeroCouponBond.h"
 
 
 int main() {
@@ -130,10 +131,16 @@ int main() {
 
     // Problem 5.
     std::cout << "---  Q2.P5  --- \n";
-    std::cout << "Overloaded pricing functions price: " << rungeKutta(GetVasicek) << std::endl;
+    std::cout << "Overloaded pricing function with Vasicek: " << rungeKutta(GetVasicek) << std::endl;
+
+    // Problem 6.
+    std::cout << "---  Q2.P6  --- \n";
+    ZeroCouponBond GetZCB(T);
+    std::cout << "Overloaded pricing function with Zero Coupon and Vasicek: " << rungeKutta(GetVasicek, GetZCB) << std::endl;
 
     // Problem 10.
     std::cout << "---  Q2.P5  --- \n";
+    
     double rkSolutionCir = rungeKuttaCir(r, kappa, theta, sigma, T, stepLength);
     std::cout << "Cir Bond Value using Runke Kutta: " << rkSolutionCir << std::endl;
 
@@ -146,15 +153,15 @@ int main() {
 
     // Problem 1.
     std::cout << "---  Q3.P2  --- \n";
-    double S0 = 90.0;
-    double K = 100.0;
-    double sigma0 = 1.3;
-    double alpha = 0.5;
-    double beta = 0.5;
-    double rho = -0.5;
+    const double S0 = 90.0;
+    const double K = 100.0;
+    const double SIGMA0 = 1.3;
+    const double ALPHA = 0.5;
+    const double BETA = 0.5;
+    const double RHO = -0.5;
     T = 3.0;
 
-    SABR SABRObj(S0, K, sigma0, alpha, beta, rho, T);
+    SABR SABRObj(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     std::cout << "SABR BS Call price: " << SABRObj.blackScholesSABR() << std::endl;
 
     return 0;

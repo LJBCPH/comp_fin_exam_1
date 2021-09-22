@@ -30,6 +30,9 @@
     <ClCompile Include="SABR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ZeroCouponBond.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="randomGenerator.h">

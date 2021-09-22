@@ -144,6 +144,7 @@
     <ClCompile Include="RungeKutta.cpp" />
     <ClCompile Include="SABR.cpp" />
     <ClCompile Include="Vasicek.cpp" />
+    <ClCompile Include="ZeroCouponBond.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gaussian_header.hpp" />

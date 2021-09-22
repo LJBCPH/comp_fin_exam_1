@@ -12,16 +12,16 @@ double SABR::blackScholesSABR()
 	double gamma1 = beta / fMid;
 	double gamma2 = -(beta * (1 - beta)) / (pow(fMid, 2));
 	double zeta = alpha / (sigma0 * (1 - beta)) * (pow(S0, 1 - beta) - pow(K, 1 - beta));
-	double dZeta = log((pow(1 - 2 * rho * zeta + pow(zeta, 2), 0.5)) / (1 - rho));
+	double dZeta = log((pow(1 - 2 * rho * zeta + pow(zeta, 2), 0.5)+zeta - rho) / (1 - rho));
 	double eps = T * pow(alpha, 2);
-	double vol = alpha * log(S0/K)/dZeta*(1+(
+	double impl_vol = alpha * log(S0/K)/dZeta*(1+(
 		(2*gamma2-pow(gamma1, 2)+1/pow(fMid,2))/24*
 		pow(sigma0*pow(fMid,beta)/alpha,2)+
 		rho*gamma1/4*
 		sigma0*pow(fMid, beta)/alpha+
 		(2-3*pow(rho,2))/24)*eps);
-	double d1 = (1 / (vol * pow(T, 0.5))) * (log(S0 / K) + 0.5 * pow(vol, 2) * T);
-	double d2 = d1 - vol * pow(T, 0.5);
+	double d1 = (1 / (impl_vol * pow(T, 0.5))) * (log(S0 / K) + 0.5 * pow(impl_vol, 2) * T);
+	double d2 = d1 - impl_vol * pow(T, 0.5);
 	double callPrice = normalCdf(d1) * S0 - normalCdf(d2) * K;
 	return callPrice;
 }
