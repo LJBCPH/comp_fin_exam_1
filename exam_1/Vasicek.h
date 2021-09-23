@@ -11,7 +11,8 @@ public:
 	double getSigma() { return sigma; }
 	double getStepLength() { return step_length; }
 	double getT() { return T; }
-	std::vector<double> solveODE(double T_);
+	std::vector<std::vector<double>> solveODE(double T_);
+	double getODE(double T_);
 
 private:
 	double r;
@@ -20,4 +21,5 @@ private:
 	double sigma;
 	double step_length;
 	double T;
+	std::vector<std::vector<double>> sol;
 };

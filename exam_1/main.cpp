@@ -107,7 +107,11 @@ int main() {
     std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumOverloadedMR.genUniform() << std::endl;
     //std::cout << "Std. Uniform from MT using the overloaded: " << random_number_mr.max() << std::endl;
 
-    // Question 2.
+    /*
+    * 
+    *  Question 2.
+    * 
+    */
 
     // Problem 3.
     std::cout << "---  Q2.P3  --- \n";
@@ -138,6 +142,11 @@ int main() {
     ZeroCouponBond GetZCB(T);
     std::cout << "Overloaded pricing function with Zero Coupon and Vasicek: " << rungeKutta(GetVasicek, GetZCB) << std::endl;
 
+    // Problem 7.
+    std::cout << "---  Q2.P7  --- \n";
+    GetVasicek.solveODE(10);
+    std::cout << "Solution to ODE T = 10: " << GetVasicek.getODE(10) << std::endl;
+
     // Problem 10.
     std::cout << "---  Q2.P5  --- \n";
     
@@ -164,5 +173,6 @@ int main() {
     SABR SABRObj(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     std::cout << "SABR BS Call price: " << SABRObj.blackScholesSABR() << std::endl;
 
+    std::cout << "\n\n\n TEST " << 1 % (int)(1 / stepLength) << "\n END ETST" << std::endl;
     return 0;
 }
