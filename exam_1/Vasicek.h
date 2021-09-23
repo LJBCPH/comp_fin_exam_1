@@ -12,7 +12,7 @@ public:
 	double getStepLength() { return step_length; }
 	double getT() { return T; }
 	std::vector<std::vector<double>> solveODE(double T_);
-	double getODE(double T_);
+	std::vector<double> getODE(double T_);
 
 private:
 	double r;

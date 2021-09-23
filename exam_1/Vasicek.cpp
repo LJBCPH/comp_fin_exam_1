@@ -12,11 +12,7 @@ Vasicek::Vasicek(double r_input, double kappa_input, double theta_input, double 
 
 std::vector<std::vector<double>> Vasicek::solveODE(double T_)
 {
-    size_t vecDim = T;
-    size_t ODEDim = 2;
-    std::vector<std::vector<double>> solODE(10, std::vector<double>(2, 0));
-    solODE[1][0] = 1;
-    std::cout << "testeststse: " << solODE[1][0] << std::endl;
+    std::vector<std::vector<double>> solODE(T_, std::vector<double>(2, 0)); //vector of dim Tx2
 
     double step_length_ = step_length;
     double kappa_ = kappa;
@@ -43,18 +39,20 @@ std::vector<std::vector<double>> Vasicek::solveODE(double T_)
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
 
 		if (i != 0 && (i) % (int)(1 / step_length - 1) == 0) {
-            std::cout << "nom : " << i << std::endl;
-            std::cout << "denom : " << (int)(1 / step_length - 2) << std::endl;
-            solODE[0][i % (int)(1 / step_length - 1)] = z;
-            solODE[1][i % (int)(1/step_length - 1)] = y;
+            solODE[i % (int)(1 / step_length - 2) - 1][0] = y;
+            solODE[i % (int)(1/step_length - 2) - 1][1] = z;
         }
     }
 
 	return sol = solODE;
 }
 
-double Vasicek::getODE(double T_)
+std::vector<double> Vasicek::getODE(double T_)
 {
-    return (exp(sol[1][T-1] + sol[0][T-1] * r));
+    std::vector<double> solVector(2);
+    solVector[0] = sol[T_-1][0];
+    solVector[1] = sol[T_-1][1];
+
+    return solVector;
 }
 

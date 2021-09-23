@@ -13,7 +13,7 @@
 #include "Vasicek.h"
 #include "SABR.h"
 #include "ZeroCouponBond.h"
-
+#include "VasicekBond.h"
 
 int main() {
 
@@ -145,10 +145,21 @@ int main() {
     // Problem 7.
     std::cout << "---  Q2.P7  --- \n";
     GetVasicek.solveODE(10);
-    std::cout << "Solution to ODE T = 10: " << GetVasicek.getODE(10) << std::endl;
+    std::cout << "Solution to ODE with T = 10:\n "; 
+    std::cout << "A: " << GetVasicek.getODE(10)[0] << std::endl;
+    std::cout << "B: " << GetVasicek.getODE(10)[1] << std::endl;
+
+    // Problem 8.
+    std::cout << "---  Q2.P8  --- \n";
+    ZeroCouponBond ZCBOneYear(1);
+    ZeroCouponBond ZCBThreeYear(3);
+    VasicekBond VasicekBondObjOneYear(GetVasicek, ZCBOneYear);
+    std::cout << "One Year Vasicek Bond from the two objects: " << VasicekBondObjOneYear.getPrice() << std::endl;
+    VasicekBond VasicekBondObjThreeYear(GetVasicek, ZCBThreeYear);
+    std::cout << "Three Year Vasicek Bond from the two objects: " << VasicekBondObjThreeYear.getPrice() << std::endl;
 
     // Problem 10.
-    std::cout << "---  Q2.P5  --- \n";
+    std::cout << "---  Q2.P10  --- \n";
     
     double rkSolutionCir = rungeKuttaCir(r, kappa, theta, sigma, T, stepLength);
     std::cout << "Cir Bond Value using Runke Kutta: " << rkSolutionCir << std::endl;

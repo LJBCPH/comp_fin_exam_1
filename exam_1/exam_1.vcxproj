@@ -144,6 +144,7 @@
     <ClCompile Include="RungeKutta.cpp" />
     <ClCompile Include="SABR.cpp" />
     <ClCompile Include="Vasicek.cpp" />
+    <ClCompile Include="VasicekBond.cpp" />
     <ClCompile Include="ZeroCouponBond.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="SABR.h" />
     <ClInclude Include="TemplatedRNG.h" />
     <ClInclude Include="Vasicek.h" />
+    <ClInclude Include="VasicekBond.h" />
     <ClInclude Include="ZeroCouponBond.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

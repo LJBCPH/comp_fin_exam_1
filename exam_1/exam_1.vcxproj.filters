@@ -33,6 +33,9 @@
     <ClCompile Include="ZeroCouponBond.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VasicekBond.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="randomGenerator.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SABR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VasicekBond.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
