@@ -3,7 +3,7 @@
 #include "CIR.h"
 #include "ZeroCouponBond.h"
 
-class CirBond : private SRB
+class CirBond : public SRB
 {
 public:
 	CirBond(CIR CIRObj_, ZeroCouponBond ZeroCouponBondobj_);

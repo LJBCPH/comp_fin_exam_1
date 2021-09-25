@@ -16,6 +16,7 @@
 #include "VasicekBond.h"
 #include "CIR.h"
 #include "CirBond.h"
+#include "Portfolio.h"
 
 int main() {
 
@@ -183,6 +184,10 @@ int main() {
 
     // Problem 12.
     std::cout << "--- Q2.P12 ---\n" << std::endl;
+    std::vector<double> notionalValues = { 100, 100 };
+    std::vector<std::reference_wrapper<SRB>> bondVector = {CirBondObjOneYear , VasicekBondObjOneYear};
+    Portfolio PortfolioBonds(2, bondVector, notionalValues);
+    std::cout << "Value of the portfolio is: " << PortfolioBonds.getPrice() << std::endl;
 
     // Question 3.
     // Problem 1.

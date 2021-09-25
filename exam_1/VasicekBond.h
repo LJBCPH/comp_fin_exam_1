@@ -3,7 +3,7 @@
 #include "Vasicek.h"
 #include "SRB.h"
 
-class VasicekBond : private SRB
+class VasicekBond : public SRB
 {
 public:
 	VasicekBond(Vasicek VasicekObj_, ZeroCouponBond ZeroCouponBondobj_);

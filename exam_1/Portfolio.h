@@ -5,11 +5,10 @@
 class Portfolio
 {
 public:
-	Portfolio(size_t dim_, SRB SRBOne, SRB SRBTwo);
+	Portfolio(size_t dim_,std::vector<std::reference_wrapper<SRB>> SRBVector_,std::vector <double> NotionalValueVector_);
+	double getPrice();
 private:
 	size_t dim;
-	std::vector<double> srbVectorOne;
-	std::vector<double> srbVectorTwo;
-	double notionalValueOne;
-	double notionalValueTwo;
+	std::vector<std::reference_wrapper<SRB>> SRBVector;
+	std::vector<double> NotionalValueVector;
 };

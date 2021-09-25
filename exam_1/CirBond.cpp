@@ -9,7 +9,7 @@ CirBond::CirBond(CIR CIRObj_, ZeroCouponBond ZeroCouponBondobj_)
 
 double CirBond::getPrice()
 {
-	std::vector<double> priceVector(2);
+	std::vector<double> priceVector(2);	
 	priceVector = CIRObj.getODE(ZeroCouponBondObj.getT());
 	return exp(priceVector[0] + priceVector[1] * CIRObj.getR());
 }
