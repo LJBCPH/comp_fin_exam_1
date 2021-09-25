@@ -12,7 +12,7 @@ public:
 	void setSeed(std::uint_fast32_t seed); //p4
 	std::uint_fast32_t getMTRNG() { return RandNumMT(); }
 	double genNormal();
-	double genNormal(std::uint_fast32_t randMT);
+	//double genNormal(std::uint_fast32_t randMT);
 	size_t getDim() { return dim; }
 	std::vector<double> genNormal(std::vector<double>& vector);
 	MTRNG(const MTRNG&);

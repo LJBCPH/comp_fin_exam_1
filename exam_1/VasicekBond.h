@@ -1,7 +1,9 @@
 #pragma once
 #include "ZeroCouponBond.h"
 #include "Vasicek.h"
-class VasicekBond
+#include "SRB.h"
+
+class VasicekBond : private SRB
 {
 public:
 	VasicekBond(Vasicek VasicekObj_, ZeroCouponBond ZeroCouponBondobj_);

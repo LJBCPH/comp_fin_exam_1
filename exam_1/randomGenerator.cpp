@@ -47,11 +47,11 @@ double MTRNG::genNormal()
 	return invNormalCdf(operator()());
 }
 
-double MTRNG::genNormal(std::uint_fast32_t randMT)
-{
-	double unif = randMT / (double)RandNumMT.max();
-	return invNormalCdf(unif);
-}
+//double MTRNG::genNormal(std::uint_fast32_t randMT)
+//{
+//	double unif = randMT / (double)RandNumMT.max();
+//	return invNormalCdf(unif);
+//}
 
 std::vector<double> MTRNG::genNormal(std::vector<double>& vector)
 {

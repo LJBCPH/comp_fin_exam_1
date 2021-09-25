@@ -36,6 +36,15 @@
     <ClCompile Include="VasicekBond.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CIR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CirBond.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Portfolio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="randomGenerator.h">
@@ -60,6 +69,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VasicekBond.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SRB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CIR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CirBond.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Portfolio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

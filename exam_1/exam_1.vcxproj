@@ -139,7 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CIR.cpp" />
+    <ClCompile Include="CirBond.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Portfolio.cpp" />
     <ClCompile Include="randomGenerator.cpp" />
     <ClCompile Include="RungeKutta.cpp" />
     <ClCompile Include="SABR.cpp" />
@@ -148,10 +151,14 @@
     <ClCompile Include="ZeroCouponBond.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CIR.h" />
+    <ClInclude Include="CirBond.h" />
     <ClInclude Include="gaussian_header.hpp" />
+    <ClInclude Include="Portfolio.h" />
     <ClInclude Include="randomGenerator.h" />
     <ClInclude Include="RungeKutta.h" />
     <ClInclude Include="SABR.h" />
+    <ClInclude Include="SRB.h" />
     <ClInclude Include="TemplatedRNG.h" />
     <ClInclude Include="Vasicek.h" />
     <ClInclude Include="VasicekBond.h" />

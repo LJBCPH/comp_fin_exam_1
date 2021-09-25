@@ -12,3 +12,7 @@ double BFunctionVasicek(double kappa_, double B);
 double AFunctionVasicek(double kappa_, double theta_, double B, double sigma_);
 
 double rungeKuttaCir(double r_, double kappa_, double theta_, double sigma_, double T_, double step_length_);
+
+double BFunctionCir(double kappa_, double B, double sigma_);
+
+double AFunctionCir(double kappa_, double theta_, double B);
