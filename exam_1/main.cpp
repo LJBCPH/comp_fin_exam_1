@@ -178,9 +178,9 @@ int main() {
     std::cout << "A: " << GetCir.getODE(10)[0] << std::endl;
     std::cout << "B: " << GetCir.getODE(10)[1] << std::endl;
     CirBond CirBondObjOneYear(GetCir, ZCBOneYear);
-    std::cout << "One Year Vasicek Bond from the two objects: " << CirBondObjOneYear.getPrice() << std::endl;
+    std::cout << "One Year CIR Bond from the two objects: " << CirBondObjOneYear.getPrice() << std::endl;
     CirBond CirBondObjThreeYear(GetCir, ZCBThreeYear);
-    std::cout << "Three Year Vasicek Bond from the two objects: " << CirBondObjThreeYear.getPrice() << std::endl;
+    std::cout << "Three Year CIR Bond from the two objects: " << CirBondObjThreeYear.getPrice() << std::endl;
 
     // Problem 12.
     std::cout << "--- Q2.P12 ---\n" << std::endl;
@@ -188,6 +188,16 @@ int main() {
     std::vector<std::reference_wrapper<SRB>> bondVector = {CirBondObjOneYear , VasicekBondObjOneYear};
     Portfolio PortfolioBonds(2, bondVector, notionalValues);
     std::cout << "Value of the portfolio is: " << PortfolioBonds.getPrice() << std::endl;
+
+    // Problem 13.
+    std::cout << "--- Q2.P13 ---\n" << std::endl;
+    Portfolio InitialPortfolio;
+    std::cout << "Value of the empty portfolio is: " << InitialPortfolio.getPrice() << std::endl;
+    InitialPortfolio.addBond(CirBondObjOneYear, 100);
+    InitialPortfolio.addBond(VasicekBondObjThreeYear, 100);
+    std::cout << "Value of the portfolio with 1YCIR and 3YVasicek is: " << InitialPortfolio.getPrice() << std::endl;
+    InitialPortfolio.removeBond(1);
+    std::cout << "Value of the portfolio with 1YCIR is: " << InitialPortfolio.getPrice() << std::endl;
 
     // Question 3.
     // Problem 1.

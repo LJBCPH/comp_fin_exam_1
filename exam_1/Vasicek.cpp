@@ -14,6 +14,7 @@ std::vector<std::vector<double>> Vasicek::solveODE(double T_)
 {
     std::vector<std::vector<double>> solODE(T_, std::vector<double>(2, 0)); //vector of dim Tx2
 
+    int j = 0;
     double step_length_ = step_length;
     double kappa_ = kappa;
     double theta_ = theta;
@@ -38,9 +39,10 @@ std::vector<std::vector<double>> Vasicek::solveODE(double T_)
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
 
-		if (i != 0 && (i) % (int)(1 / step_length - 1) == 0) {
-            solODE[i % (int)(1 / step_length - 2) - 1][0] = y;
-            solODE[i % (int)(1/step_length - 2) - 1][1] = z;
+        if (i == (j + 1) / step_length - 1) {
+            solODE[j][0] = y;
+            solODE[j][1] = z;
+            j += 1;
         }
     }
 
