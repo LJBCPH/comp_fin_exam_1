@@ -1,13 +1,13 @@
 
 // HandIn 1 by XXX
-// Student id :  ....
+// Student id :  kzx651
 
 #include <iostream>
 #include <random>
 #include <string>
 #include <cmath>
 #include "gaussian_header.hpp"
-#include "randomGenerator.h"
+//#include "randomGenerator.h"
 #include "TemplatedRNG.h"
 #include "RungeKutta.h"
 #include "Vasicek.h"
@@ -17,6 +17,9 @@
 #include "CIR.h"
 #include "CirBond.h"
 #include "Portfolio.h"
+#include "MTRNG.h"
+#include "CallOption.h"
+#include "MC_SABR.h"
 
 int main() {
 
@@ -226,5 +229,22 @@ int main() {
     std::vector<double> normVector(RandNumber200Dim.getDim());
     RandNumber200Dim.genNormal(normVector);
     std::cout << "Path using 100 steps: " << SABRObj.genPath(normVector, T) << std::endl;
+
+    // Problem 6.
+    std::cout << "---  Q3.P6  --- \n";
+    const int STEPS = 100, PATHS = 1000000;
+    MTRNG RandNumberMC(1.0, STEPS *2);
+    SABR SABRObjMC(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
+    CallOption CallOptionObj(K, T);
+    //std::cout << "Call TEST " << CallOptionObj.callPayoff(SABRObj.genPath(normVector, T)) << std::endl;
+    std::cout << "MC Price: " << MC_SABR(SABRObjMC, CallOptionObj, RandNumberMC, STEPS, PATHS) << std::endl;
+
+    // Problem 7.
+    MTRNG RandNumberPathTest(1.0, STEPS * 2);
+    SABR SABRObjPathTest(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
+    CallOption CallOptionObjPathTest(K, T);
+    std::cout << "---  Q3.P7  --- \n";
+    std::cout << "needed paths to converge: " << pathsNeededToMatchPrice(0.001, SABRObjPathTest, CallOptionObjPathTest, RandNumberPathTest, STEPS) << std::endl;
+
     return 0;
 }

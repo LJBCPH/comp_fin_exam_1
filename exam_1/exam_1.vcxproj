@@ -157,6 +157,7 @@
     <ClInclude Include="CIR.h" />
     <ClInclude Include="CirBond.h" />
     <ClInclude Include="gaussian_header.hpp" />
+    <ClInclude Include="MC_SABR.h" />
     <ClInclude Include="Portfolio.h" />
     <ClInclude Include="randomGenerator.h" />
     <ClInclude Include="RungeKutta.h" />

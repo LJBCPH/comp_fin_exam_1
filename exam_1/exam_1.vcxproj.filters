@@ -92,5 +92,8 @@
     <ClInclude Include="CallOption.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MC_SABR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
