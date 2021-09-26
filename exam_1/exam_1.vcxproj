@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CallOption.cpp" />
     <ClCompile Include="CIR.cpp" />
     <ClCompile Include="CirBond.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MC_SABR.cpp" />
     <ClCompile Include="Portfolio.cpp" />
     <ClCompile Include="randomGenerator.cpp" />
     <ClCompile Include="RungeKutta.cpp" />
@@ -151,6 +153,7 @@
     <ClCompile Include="ZeroCouponBond.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CallOption.h" />
     <ClInclude Include="CIR.h" />
     <ClInclude Include="CirBond.h" />
     <ClInclude Include="gaussian_header.hpp" />
