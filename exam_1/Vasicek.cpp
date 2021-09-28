@@ -28,18 +28,18 @@ std::vector<std::vector<double>> Vasicek::solveODE(double T_)
         l1 = -step_length_ * AFunctionVasicek(kappa_, theta_, z, sigma_);
 
         k2 = -step_length_ * BFunctionVasicek(kappa_, z + 0.5 * k1);
-        l2 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * l1, sigma_);
+        l2 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * k1, sigma_);
 
         k3 = -step_length_ * BFunctionVasicek(kappa_, z + 0.5 * k2);
-        l3 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * l2, sigma_);
+        l3 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * k2, sigma_);
 
         k4 = -step_length_ * BFunctionVasicek(kappa_, z + k3);
-        l4 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + l3, sigma_);
+        l4 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + k3, sigma_);
 
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
 
-        if (i == (j + 1) / step_length - 1) {
+        if (i == (j + 1.0) / step_length - 1) {
             solODE[j][0] = y;
             solODE[j][1] = z;
             j += 1;

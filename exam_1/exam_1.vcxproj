@@ -144,6 +144,7 @@
     <ClCompile Include="CirBond.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MC_SABR.cpp" />
+    <ClCompile Include="MTRNG.cpp" />
     <ClCompile Include="Portfolio.cpp" />
     <ClCompile Include="randomGenerator.cpp" />
     <ClCompile Include="RungeKutta.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="CirBond.h" />
     <ClInclude Include="gaussian_header.hpp" />
     <ClInclude Include="MC_SABR.h" />
+    <ClInclude Include="MTRNG.h" />
     <ClInclude Include="Portfolio.h" />
     <ClInclude Include="randomGenerator.h" />
     <ClInclude Include="RungeKutta.h" />

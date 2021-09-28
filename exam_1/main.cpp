@@ -40,7 +40,6 @@ int main() {
     // Problem 2.
     MTRNG RandNumber(1); // Initialisation of MTRNG class
 
-
     // Problem 3.
     std::cout << "---  Q1.P3  --- \n";
     // Output related to problem 3.
@@ -65,7 +64,6 @@ int main() {
     // Output related to problem 7.
     RandNumber.setSeed(1);
     std::cout << RandNumber.genNormal() << "\n" << std::endl;
-
 
     // Problem 8.
     std::cout << "---  Q1.P8  --- \n";
@@ -166,7 +164,6 @@ int main() {
 
     // Problem 9
 
-
     // Problem 10.
     std::cout << "---  Q2.P10  --- \n";
     
@@ -232,7 +229,7 @@ int main() {
 
     // Problem 6.
     std::cout << "---  Q3.P6  --- \n";
-    const int STEPS = 100, PATHS = 1000000;
+    const int STEPS = 100, PATHS = 10000;
     MTRNG RandNumberMC(1.0, STEPS *2);
     SABR SABRObjMC(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObj(K, T);
@@ -240,7 +237,7 @@ int main() {
     std::cout << "MC Price: " << MC_SABR(SABRObjMC, CallOptionObj, RandNumberMC, STEPS, PATHS) << std::endl;
 
     // Problem 7.
-    MTRNG RandNumberPathTest(1.0, STEPS * 2);
+    MTRNG RandNumberPathTest(3.0, STEPS * 2);
     SABR SABRObjPathTest(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObjPathTest(K, T);
     std::cout << "---  Q3.P7  --- \n";

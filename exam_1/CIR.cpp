@@ -20,13 +20,13 @@ std::vector<std::vector<double>> CIR::solveODE(double T_)
         l1 = -step_length_ * AFunctionCir(kappa_, theta_, z);
 
         k2 = -step_length_ * BFunctionCir(kappa_, z + 0.5 * k1, sigma_);
-        l2 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * l1);
+        l2 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * k1);
 
         k3 = -step_length_ * BFunctionCir(kappa_, z + 0.5 * k2, sigma_);
-        l3 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * l2);
+        l3 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * k2);
 
         k4 = -step_length_ * BFunctionCir(kappa_, z + k3, sigma_);
-        l4 = -step_length_ * AFunctionCir(kappa_, theta_, z + l3);
+        l4 = -step_length_ * AFunctionCir(kappa_, theta_, z + k3);
 
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;

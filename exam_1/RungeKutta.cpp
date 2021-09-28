@@ -28,13 +28,13 @@ double rungeKutta(double r_, double kappa_, double theta_, double sigma_, double
         l1 = -step_length_ * AFunctionVasicek(kappa_, theta_, z, sigma_);
 
         k2 = -step_length_ * BFunctionVasicek(kappa_, z + 0.5 * k1);
-        l2 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * l1, sigma_);
+        l2 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * k1, sigma_);
 
         k3 = -step_length_ * BFunctionVasicek(kappa_, z + 0.5 * k2);
-        l3 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * l2, sigma_);
+        l3 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + 0.5 * k2, sigma_);
 
         k4 = -step_length_ * BFunctionVasicek(kappa_, z + k3);
-        l4 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + l3, sigma_);
+        l4 = -step_length_ * AFunctionVasicek(kappa_, theta_, z + k3, sigma_);
 
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
 
@@ -62,13 +62,13 @@ double rungeKutta(Vasicek VasicekObject)
         l1 = -step_length * AFunctionVasicek(kappa, theta, z, sigma);
 
         k2 = -step_length * BFunctionVasicek(kappa, z + 0.5 * k1);
-        l2 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * l1, sigma);
+        l2 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * k1, sigma);
 
         k3 = -step_length * BFunctionVasicek(kappa, z + 0.5 * k2);
-        l3 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * l2, sigma);
+        l3 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * k2, sigma);
 
         k4 = -step_length * BFunctionVasicek(kappa, z + k3);
-        l4 = -step_length * AFunctionVasicek(kappa, theta, z + l3, sigma);
+        l4 = -step_length * AFunctionVasicek(kappa, theta, z + k3, sigma);
 
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
@@ -95,13 +95,13 @@ double rungeKutta(Vasicek VasicekObject, ZeroCouponBond ZeroCouponBondObject)
         l1 = -step_length * AFunctionVasicek(kappa, theta, z, sigma);
 
         k2 = -step_length * BFunctionVasicek(kappa, z + 0.5 * k1);
-        l2 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * l1, sigma);
+        l2 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * k1, sigma);
 
         k3 = -step_length * BFunctionVasicek(kappa, z + 0.5 * k2);
-        l3 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * l2, sigma);
+        l3 = -step_length * AFunctionVasicek(kappa, theta, z + 0.5 * k2, sigma);
 
         k4 = -step_length * BFunctionVasicek(kappa, z + k3);
-        l4 = -step_length * AFunctionVasicek(kappa, theta, z + l3, sigma);
+        l4 = -step_length * AFunctionVasicek(kappa, theta, z + k3, sigma);
 
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
@@ -135,13 +135,13 @@ double rungeKuttaCir(double r_, double kappa_, double theta_, double sigma_, dou
         l1 = -step_length_ * AFunctionCir(kappa_, theta_, z);
 
         k2 = -step_length_ * BFunctionCir(kappa_, z + 0.5 * k1, sigma_);
-        l2 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * l1);
+        l2 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * k1);
 
         k3 = -step_length_ * BFunctionCir(kappa_, z + 0.5 * k2, sigma_);
-        l3 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * l2);
+        l3 = -step_length_ * AFunctionCir(kappa_, theta_, z + 0.5 * k2);
 
         k4 = -step_length_ * BFunctionCir(kappa_, z + k3, sigma_);
-        l4 = -step_length_ * AFunctionCir(kappa_, theta_, z + l3);
+        l4 = -step_length_ * AFunctionCir(kappa_, theta_, z + k3);
 
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
 
