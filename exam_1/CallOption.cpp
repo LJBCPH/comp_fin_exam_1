@@ -1,12 +1,13 @@
 #include "CallOption.h"
 
-CallOption::CallOption(double K_, double T_)
+CallOption::CallOption(const double K_, const double T_)
 	:K(K_), T(T_)
 {
 }
 
-double CallOption::callPayoff(double ST_)
+double CallOption::callPayoff(const double ST_)
 {
+
 	if (ST_ > K) {
 		return ST_ - K;
 	}

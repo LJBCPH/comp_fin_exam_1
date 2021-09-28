@@ -3,8 +3,8 @@
 class ZeroCouponBond
 {
 public:
-	ZeroCouponBond(double T_);
-	double getT() { return T; }
+	ZeroCouponBond(const double T_);
+	const double getT() { return T; }
 private:
-	double T;
+	const double T;
 };

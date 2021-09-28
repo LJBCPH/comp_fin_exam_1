@@ -1,18 +1,18 @@
 #pragma once
 #include "Vasicek.h"
 #include "ZeroCouponBond.h"
-double rungeKutta(double r_, double kappa_, double theta_, double sigma_, double T_, double step_length_);
+double rungeKutta(const double r_, const double kappa_, const double theta_, const double sigma_, const double T_, const double step_length_);
 
 double rungeKutta(Vasicek VasicekObject);
 
 double rungeKutta(Vasicek VasicekObject, ZeroCouponBond ZeroCouponBondObject);
 
-double BFunctionVasicek(double kappa_, double B);
+double BFunctionVasicek(const double kappa_, const double B);
 
-double AFunctionVasicek(double kappa_, double theta_, double B, double sigma_);
+double AFunctionVasicek(const double kappa_, const double theta_, const double B, const double sigma_);
 
-double rungeKuttaCir(double r_, double kappa_, double theta_, double sigma_, double T_, double step_length_);
+double rungeKuttaCir(const double r_, const double kappa_, const double theta_, const double sigma_, const double T_, const double step_length_);
 
-double BFunctionCir(double kappa_, double B, double sigma_);
+double BFunctionCir(const double kappa_, const double B, const double sigma_);
 
-double AFunctionCir(double kappa_, double theta_, double B);
+double AFunctionCir(const double kappa_, const double theta_, const double B);

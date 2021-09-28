@@ -15,10 +15,8 @@ double AFunctionVasicek(double kappa_, double theta_, double B, double sigma_) {
     return -kappa_ * theta_ * B - 0.5 * pow(sigma_, 2) * pow(B, 2);
 }
 
-double rungeKutta(double r_, double kappa_, double theta_, double sigma_, double T_, double step_length_) {
-    double B = 0;
-    //double z = BFunction(kappa_, B); //Bmærke = z
-    //double y = AFunction(kappa_, theta_, B, sigma_); //Amærke = y
+double rungeKutta(const double r_, const double kappa_, const double theta_, const double sigma_, const double T_, const double step_length_) {
+
     double z = 0;
     double y = 0;
     double k1, k2, k3, k4, l1, l2, l3, l4;
@@ -114,15 +112,15 @@ double rungeKutta(Vasicek VasicekObject, ZeroCouponBond ZeroCouponBondObject)
 CIR with Runge Kutta Method
 */
 
-double BFunctionCir(double kappa_, double B,double sigma_) {
+double BFunctionCir(const double kappa_, const double B, const double sigma_) {
     return kappa_ * B - 0.5 * pow(sigma_, 2) * pow(B,2) + 1;
 }
 
-double AFunctionCir(double kappa_, double theta_, double B) {
+double AFunctionCir(const double kappa_, const double theta_, const double B) {
     return -kappa_ * theta_ * B;
 }
 
-double rungeKuttaCir(double r_, double kappa_, double theta_, double sigma_, double T_, double step_length_) {
+double rungeKuttaCir(const double r_, const double kappa_, const double theta_, const double sigma_, const double T_, const double step_length_) {
     double B = 0;
     //double z = BFunction(kappa_, B); //Bmærke = z
     //double y = AFunction(kappa_, theta_, B, sigma_); //Amærke = y

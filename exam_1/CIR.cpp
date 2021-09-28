@@ -2,14 +2,14 @@
 #include "RungeKutta.h"
 #include <iostream>
 
-std::vector<std::vector<double>> CIR::solveODE(double T_)
+std::vector<std::vector<double>> CIR::solveODE(const double T_)
 {
     std::vector<std::vector<double>> solODE(T_, std::vector<double>(2, 0)); //vector of dim Tx2
 
     int j = 0;
-    double step_length_ = step_length;
-    double kappa_ = kappa;
-    double theta_ = theta;
+    const double step_length_ = step_length;
+    const double kappa_ = kappa;
+    const double theta_ = theta;
     double sigma_ = sigma;
     double z = 0;
     double y = 0;
@@ -41,7 +41,7 @@ std::vector<std::vector<double>> CIR::solveODE(double T_)
     return sol = solODE;
 }
 
-std::vector<double> CIR::getODE(double T_)
+std::vector<double> CIR::getODE(const double T_)
 {
     std::vector<double> solVector(2);
     solVector[0] = sol[T_ - 1][0];

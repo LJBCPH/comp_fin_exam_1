@@ -1,6 +1,6 @@
 #include "ZeroCouponBond.h"
 
-ZeroCouponBond::ZeroCouponBond(double T_)
+ZeroCouponBond::ZeroCouponBond(const double T_)
 	: T(T_)
 {
 }

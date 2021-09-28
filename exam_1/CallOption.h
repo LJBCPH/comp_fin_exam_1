@@ -3,10 +3,10 @@
 class CallOption
 {
 public:
-	CallOption(double K_, double T_);
+	CallOption(const double K_, const double T_);
 	double getK() { return K; }
 	double getT() { return T; }
-	double callPayoff(double ST_);
+	double callPayoff(const double ST_);
 private:
-	double K, T;
+	const double K, T;
 };

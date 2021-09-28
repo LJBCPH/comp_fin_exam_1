@@ -3,7 +3,7 @@
 
 class CIR {
 public:
-	CIR(double r_input, double kappa_input, double theta_input, double sigma_input, double step_length_input);
+	CIR(const double r_input, const  double kappa_input, const  double theta_input, const  double sigma_input, const  double step_length_input);
 
 	double getR() { return r; }
 	double getKappa() { return kappa; }
@@ -11,15 +11,15 @@ public:
 	double getSigma() { return sigma; }
 	double getStepLength() { return step_length; }
 	double getT() { return T; }
-	std::vector<std::vector<double>> solveODE(double T_);
-	std::vector<double> getODE(double T_);
+	std::vector<std::vector<double>> solveODE(const double T_);
+	std::vector<double> getODE(const double T_);
 
 private:
-	double r;
-	double kappa;
-	double theta;
-	double sigma;
-	double step_length;
+	const double r;
+	const double kappa;
+	const double theta;
+	const double sigma;
+	const double step_length;
 	double T;
 	std::vector<std::vector<double>> sol;
 };

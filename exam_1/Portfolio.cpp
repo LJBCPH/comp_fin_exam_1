@@ -21,14 +21,14 @@ Portfolio::Portfolio()
 	dim = 0;
 }
 
-void Portfolio::addBond(const std::reference_wrapper<SRB> SRBBond, double notionalValue)
+void Portfolio::addBond(const std::reference_wrapper<SRB> SRBBond, const double notionalValue)
 {
 	SRBVector.push_back(SRBBond); 
 	NotionalValueVector.push_back(notionalValue); 
 	dim = SRBVector.size(); 
 }
 
-void Portfolio::removeBond(unsigned int bondIndex)
+void Portfolio::removeBond(const unsigned int bondIndex)
 {
 	SRBVector.erase(SRBVector.begin() + bondIndex); 
 	NotionalValueVector.erase(NotionalValueVector.begin() + bondIndex); 

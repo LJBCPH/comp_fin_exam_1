@@ -33,7 +33,7 @@ double pathsNeededToMatchPrice(double eps, SABR SABRObj, CallOption CallOptionOb
             std::cout << "ERR " << err << " PRICE " << payoff / (double)paths << std::endl;
             err = abs(payoff / (double)paths - analyticalPrice);
             if (paths % 1000 == 0) {
-              //  std::cout << "Path number: " << paths << " PRICE: " << payoff/(double) paths << std::endl;
+                std::cout << "Path number: " << paths << " PRICE: " << payoff/(double) paths << std::endl;
             }
     }
 

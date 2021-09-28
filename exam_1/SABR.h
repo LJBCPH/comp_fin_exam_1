@@ -5,9 +5,9 @@
 class SABR
 {
 public:
-	SABR(double S0_, double K_, double sigma0_, double alpha_, double beta_, double rho_, double T_);
+	SABR(const double S0_, const double K_, const double sigma0_, const double alpha_, const double beta_, const double rho_, const double T_);
 	double blackScholesSABR();
-	double genPath(std::vector<double> normVec, double T_);
+	double genPath(std::vector<double> normVec, const double T_);
 private:
-	double S0, K, sigma0, alpha, beta, rho, T;
+	const double S0, K, sigma0, alpha, beta, rho, T;
 };

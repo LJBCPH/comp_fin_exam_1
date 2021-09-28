@@ -146,7 +146,6 @@
     <ClCompile Include="MC_SABR.cpp" />
     <ClCompile Include="MTRNG.cpp" />
     <ClCompile Include="Portfolio.cpp" />
-    <ClCompile Include="randomGenerator.cpp" />
     <ClCompile Include="RungeKutta.cpp" />
     <ClCompile Include="SABR.cpp" />
     <ClCompile Include="Vasicek.cpp" />
@@ -161,7 +160,6 @@
     <ClInclude Include="MC_SABR.h" />
     <ClInclude Include="MTRNG.h" />
     <ClInclude Include="Portfolio.h" />
-    <ClInclude Include="randomGenerator.h" />
     <ClInclude Include="RungeKutta.h" />
     <ClInclude Include="SABR.h" />
     <ClInclude Include="SRB.h" />
