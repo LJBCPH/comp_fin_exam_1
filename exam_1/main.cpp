@@ -49,21 +49,21 @@ int main() {
     std::cout << "---  Q1.P4  --- \n";
     // Output related to problem 4.
     RandNumber.setSeed(2);
-    std::cout << RandNumber() << std::endl;
+    std::cout << "Random number with seed = 2: " << RandNumber() << std::endl;
     RandNumber.setSeed(2);
-    std::cout << RandNumber() << "\n" << std::endl;
+    std::cout << "Random number again with seed = 2: " << RandNumber() << "\n" << std::endl;
 
     // Problem 5.
     std::cout << "---  Q1.P5  --- \n";
     // Output related to problem 5.
     RandNumber.setSeed(1);
-    std::cout << RandNumber(1, 2) << "\n" << std::endl;
+    std::cout << "Realization of random U(1,2) variable: " << RandNumber(1, 2) << "\n" << std::endl;
 
     // Problem 7.
     std::cout << "---  Q1.P7  --- \n";
     // Output related to problem 7.
     RandNumber.setSeed(1);
-    std::cout << RandNumber.genNormal() << "\n" << std::endl;
+    std::cout << "Standard Normal with seed = 1: " << RandNumber.genNormal() << "\n" << std::endl;
 
     // Problem 8.
     std::cout << "---  Q1.P8  --- \n";
@@ -71,7 +71,7 @@ int main() {
     std::mt19937 random_number_mt;
     random_number_mt.seed(10);
     MTRNG RandNumber2(random_number_mt);
-    std::cout << RandNumber2.genNormal() << "\n" << std::endl;
+    std::cout << "Random number from mt object with seed = 10: " << RandNumber2.genNormal() << "\n" << std::endl;
 
     // Problem 9.
     std::cout << "---  Q1.P9  --- \n";
@@ -81,6 +81,7 @@ int main() {
     std::cout << "Dimension for vector: " << RandNumber3.getDim() << std::endl;
     std::vector<double> randVector(RandNumber3.getDim());
     RandNumber3.genNormal(randVector);
+    std::cout << "Random vector with dim = 5: " << std::endl;
     for (int i = 0; i < 5; i++) {
         std::cout << randVector[i] << std::endl;
     }
@@ -90,7 +91,7 @@ int main() {
     // Output related to problem 10.
     RandNumber2.setSeed(1);
     MTRNG RandNumber4(RandNumber2);
-    std::cout << "Copied: " << RandNumber4.genNormal() << "\n" << std::endl;
+    std::cout << "Standard uniform from copied object: " << RandNumber4() << "\n" << std::endl;
 
     // Problem 11.
     std::cout << "---  Q1.P11  --- \n";
@@ -106,11 +107,9 @@ int main() {
     std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumMR.genUniform() << std::endl;
 
     std::minstd_rand random_number_mr;
-    //std::cout << "random: " << random_number_mr() << "max: " << random_number_mr.max();
     TemplatedRNG<std::minstd_rand> TemplatedRandNumOverloadedMR(random_number_mr, 1);
     std::cout << "Std. Uniform from MINSTD using the overloaded: " << TemplatedRandNumOverloadedMR.genUniform() << "\n" << std::endl;
-    //std::cout << "Std. Uniform from MT using the overloaded: " << random_number_mr.max() << std::endl;
-
+    
     /*
     * 
     *  Question 2.
@@ -199,7 +198,12 @@ int main() {
     InitialPortfolio.removeBond(1);
     std::cout << "Value of the portfolio with 1YCIR is: " << InitialPortfolio.getPrice() << std::endl;
 
-    // Question 3.
+    /* 
+    *
+    * Question 3.
+    * 
+    */
+
     // Problem 1.
     std::cout << "---  Q3.P1  --- \n";
     std::cout.std::ios_base::precision(12); // To compare with R's function pnorm
@@ -229,15 +233,14 @@ int main() {
 
     // Problem 6.
     std::cout << "---  Q3.P6  --- \n";
-    const int STEPS = 100, PATHS = 10000;
+    const int STEPS = 200, PATHS = 10000;
     MTRNG RandNumberMC(1.0, STEPS *2);
     SABR SABRObjMC(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObj(K, T);
-    //std::cout << "Call TEST " << CallOptionObj.callPayoff(SABRObj.genPath(normVector, T)) << std::endl;
     std::cout << "MC Price: " << MC_SABR(SABRObjMC, CallOptionObj, RandNumberMC, STEPS, PATHS) << std::endl;
 
     // Problem 7.
-    MTRNG RandNumberPathTest(3.0, STEPS * 2);
+    MTRNG RandNumberPathTest(1.0, STEPS * 2);
     SABR SABRObjPathTest(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObjPathTest(K, T);
     std::cout << "---  Q3.P7  --- \n";

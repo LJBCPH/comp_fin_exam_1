@@ -34,21 +34,20 @@ double SABR::genPath(std::vector<double> normVec, const double T_)
 	double st = S0;
 	double sigma = sigma0;
 	double W1, W2, normY, normX, normZ;
-	
+	const double step_size = T_ / steps;
 	for (int i = 0; i < steps; i++) {
 		normX = normVec[2.0 * i];
 		normZ = normX * rho + pow(1.0 - pow(rho, 2.0), 0.5) * normVec[1.0 + 2.0 * i];
 		
-		W1 = pow(T_ / steps, 0.5) * normZ;
-		W2 = pow(T_ / steps, 0.5) * normX;
+		W1 = pow(step_size, 0.5) * normZ;
+		W2 = pow(step_size, 0.5) * normX;
 
 		if (st < 0) { //if spot price is <0 we assume default
-			st = 0;
+			return 0;
 		}
 
 		st = st + sigma * pow(st, beta) * W1;
-		sigma = sigma * exp(-0.5 * pow(alpha, 2.0) * (T_ / steps) + alpha * W2);
-
+		sigma = sigma * exp(-0.5 * pow(alpha, 2.0) * (step_size) + alpha * W2);
 	}
 
 	return st;

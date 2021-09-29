@@ -50,7 +50,7 @@ std::vector<double> CIR::getODE(const double T_)
     return solVector;
 }
 
-CIR::CIR(double r_input, double kappa_input, double theta_input, double sigma_input, double step_length_input)
+CIR::CIR(const double r_input, const double kappa_input, const double theta_input, const double sigma_input, const double step_length_input)
     :r(r_input), kappa(kappa_input), theta(theta_input), sigma(sigma_input), step_length(step_length_input)
 {
     T = 1;
