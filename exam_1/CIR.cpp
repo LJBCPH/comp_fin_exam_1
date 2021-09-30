@@ -31,7 +31,7 @@ std::vector<std::vector<double>> CIR::solveODE(const double T_)
         z = z + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
         y = y + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
 
-        if (i == (j+1) / step_length - 1) {
+        if (i == (j+1.0) / step_length - 1) {
             solODE[j][0] = y;
             solODE[j][1] = z;
             j += 1;

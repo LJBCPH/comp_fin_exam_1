@@ -22,20 +22,16 @@ double pathsNeededToMatchPrice(double eps, SABR SABRObj, CallOption CallOptionOb
     double payoff = 0, err = 1; //initial = 1 to not break while loop
     int paths = 0;
     double analyticalPrice = SABRObj.blackScholesSABR();
-    std::cout << eps << std::endl;
+    
     while (err > eps) {
-        for(int k = 0; k < 1; k++){
+        for(int k = 0; k < 1; k++){ // used during test, set k < x to evaluate error based on x chunks
             paths += 1;
             MTRNGObj.genNormal(normVector);
             payoff += CallOptionObj.callPayoff(SABRObj.genPath(normVector, CallOptionObj.getT()));
         }
-        //std::cout << "ERR " << err << " PRICE " << payoff / (double)paths << std::endl;
-        err = abs(payoff / (double)paths - analyticalPrice);
-        if (paths % 1000 == 0) {
-            std::cout << "Path number: " << paths << " PRICE: " << payoff/(double) paths << std::endl;
-        }
+        err = abs(1 - (payoff / (double)paths) / analyticalPrice);
     }
 
-    std::cout << "PAYOFF " << payoff / (double)paths << "  PATJS " << analyticalPrice << " DIFF : " << abs(payoff / (double)paths - analyticalPrice) << std::endl;
+    std::cout << "Payoff: " << payoff / (double)paths << "  Analytical price: " << analyticalPrice << "Error: " << abs(payoff / (double)paths - analyticalPrice) << std::endl;
     return paths;
 }

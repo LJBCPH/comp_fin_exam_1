@@ -96,7 +96,6 @@ int main() {
     // Problem 11.
     std::cout << "---  Q1.P11  --- \n";
     // Output related to problem 11.
-    //std::mt19937 random_number_mt;
     TemplatedRNG<std::mt19937> TemplatedRandNumMT(1);
     std::cout << "Std. Uniform from MT: " << TemplatedRandNumMT.genUniform() << std::endl;
 
@@ -233,14 +232,14 @@ int main() {
 
     // Problem 6.
     std::cout << "---  Q3.P6  --- \n";
-    const int STEPS = 200, PATHS = 10000;
-    MTRNG RandNumberMC(1.0, STEPS *2);
+    const int STEPS = 100, PATHS = 10000;
+    MTRNG RandNumberMC(1, STEPS *2);
     SABR SABRObjMC(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObj(K, T);
     std::cout << "MC Price: " << MC_SABR(SABRObjMC, CallOptionObj, RandNumberMC, STEPS, PATHS) << std::endl;
-
+    
     // Problem 7.
-    MTRNG RandNumberPathTest(1.0, STEPS * 2);
+    MTRNG RandNumberPathTest(1, STEPS * 2);
     SABR SABRObjPathTest(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObjPathTest(K, T);
     std::cout << "---  Q3.P7  --- \n";
