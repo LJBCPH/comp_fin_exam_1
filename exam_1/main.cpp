@@ -7,7 +7,6 @@
 #include <string>
 #include <cmath>
 #include "gaussian_header.hpp"
-//#include "randomGenerator.h"
 #include "TemplatedRNG.h"
 #include "RungeKutta.h"
 #include "Vasicek.h"
