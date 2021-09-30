@@ -4,7 +4,7 @@
 #include <cmath>
 
 double MC_SABR(SABR SABRObj, CallOption CallOptionObj, MTRNG MTRNGObj, double steps, double paths) {
-    std::vector<double> normVector(steps * 2);
+    std::vector<double> normVector(steps * 2.0);
 
     double payoff = 0;
 
@@ -17,9 +17,9 @@ double MC_SABR(SABR SABRObj, CallOption CallOptionObj, MTRNG MTRNGObj, double st
 }
 
 double pathsNeededToMatchPrice(double eps, SABR SABRObj, CallOption CallOptionObj, MTRNG MTRNGObj, double steps) {
-    std::vector<double> normVector(steps * 2);
+    std::vector<double> normVector(steps * 2.0);
 
-    double payoff = 0, err = 1; //initial = 1 to not break while loop
+    double payoff = 0, err = 1; 
     int paths = 0;
     double analyticalPrice = SABRObj.blackScholesSABR();
     

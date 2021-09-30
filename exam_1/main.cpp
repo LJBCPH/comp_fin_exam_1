@@ -25,7 +25,7 @@ int main() {
     // Question 1.
 
     // Problem 1
-    std::cout << "---  Q1.P1  --- \n" << std::endl;
+    std::cout << "---  Q1.P1  --- \n";
 
     // Here is some code that initializes a MT object with seed 1 
     //and outputs a random number as well as min and max values...
@@ -159,16 +159,13 @@ int main() {
     VasicekBond VasicekBondObjThreeYear(GetVasicek, ZCBThreeYear);
     std::cout << "Three Year Vasicek Bond from the two objects: " << VasicekBondObjThreeYear.getPrice() << "\n" << std::endl;
 
-    // Problem 9
-
     // Problem 10.
     std::cout << "---  Q2.P10  --- \n";
-    
     double rkSolutionCir = rungeKuttaCir(r, kappa, theta, sigma, T, stepLength);
     std::cout << "Cir Bond Value using Runke Kutta: " << rkSolutionCir << "\n" << std::endl;
 
     // Problem 11.
-    std::cout << "--- Q2.P11 ---\n" << std::endl;
+    std::cout << "--- Q2.P11 ---\n";
     CIR GetCir(r, kappa, theta, sigma, stepLength);
     GetCir.solveODE(10);
     std::cout << "Solution to ODE with T = 10:\n ";
@@ -180,21 +177,21 @@ int main() {
     std::cout << "Three Year CIR Bond from the two objects: " << CirBondObjThreeYear.getPrice() << "\n" << std::endl;
 
     // Problem 12.
-    std::cout << "--- Q2.P12 ---\n" << std::endl;
+    std::cout << "--- Q2.P12 ---\n";
     std::vector<double> notionalValues = { 100, 100 };
     std::vector<std::reference_wrapper<SRB>> bondVector = {CirBondObjOneYear , VasicekBondObjOneYear};
     Portfolio PortfolioBonds(2, bondVector, notionalValues);
     std::cout << "Value of the portfolio is: " << PortfolioBonds.getPrice() << "\n" << std::endl;
 
     // Problem 13.
-    std::cout << "--- Q2.P13 ---\n" << std::endl;
+    std::cout << "--- Q2.P13 ---\n";
     Portfolio InitialPortfolio;
     std::cout << "Value of the empty portfolio is: " << InitialPortfolio.getPrice() << std::endl;
     InitialPortfolio.addBond(CirBondObjOneYear, 100);
     InitialPortfolio.addBond(VasicekBondObjThreeYear, 100);
     std::cout << "Value of the portfolio with 1YCIR and 3YVasicek is: " << InitialPortfolio.getPrice() << std::endl;
     InitialPortfolio.removeBond(1);
-    std::cout << "Value of the portfolio with 1YCIR is: " << InitialPortfolio.getPrice() << std::endl;
+    std::cout << "Value of the portfolio with 1YCIR is: " << InitialPortfolio.getPrice() << "\n" << std::endl;
 
     /* 
     *
@@ -227,7 +224,7 @@ int main() {
     MTRNG RandNumber200Dim(1, 200);
     std::vector<double> normVector(RandNumber200Dim.getDim());
     RandNumber200Dim.genNormal(normVector);
-    std::cout << "Path using 100 steps: " << SABRObj.genPath(normVector, T) << std::endl;
+    std::cout << "Path using 100 steps: " << SABRObj.genPath(normVector, T) << "\n" << std::endl;
 
     // Problem 6.
     std::cout << "---  Q3.P6  --- \n";
@@ -235,7 +232,7 @@ int main() {
     MTRNG RandNumberMC(1, STEPS *2);
     SABR SABRObjMC(S0, K, SIGMA0, ALPHA, BETA, RHO, T);
     CallOption CallOptionObj(K, T);
-    std::cout << "MC Price: " << MC_SABR(SABRObjMC, CallOptionObj, RandNumberMC, STEPS, PATHS) << std::endl;
+    std::cout << "MC Price: " << MC_SABR(SABRObjMC, CallOptionObj, RandNumberMC, STEPS, PATHS) << "\n" << std::endl;
     
     // Problem 7.
     MTRNG RandNumberPathTest(1, STEPS * 2);
